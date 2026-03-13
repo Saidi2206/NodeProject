@@ -25,14 +25,14 @@ Router.post('/register', async (req,res)=>{
         )
         .catch(
             (err)=>{
-                response.send(err)
+                res.status(400).send(err)
             }
          )
 })
 // test si le mail correct  bcrypt pour compare mdp envoyee avec mdp dans la base cree le token avec jwt sign paylaod les donner qu'on veut mettre et secret key  
 Router.post('/login', async (req , res)=>{
     data = req.body;
-    user = await User.findOne({email: data.email})
+    user = await User.findOne({Email: data.Email})
     if(!user){
         res.status(404).send('Mot de Passe Invalid')
     }else {
@@ -42,8 +42,8 @@ Router.post('/login', async (req , res)=>{
         }else{
             payload = {
                 id : user._id,
-                Email : user.email,
-                Role : user.role
+                Email : user.Email,
+                Role : user.Role
             }
             token = jwt.sign(payload, '146045' )
             res.status(200).send({message: 'Login successful', mytoken : token})

@@ -13,7 +13,7 @@ const { mongoose } = require("mongoose");
             } ,
             Statut  :{
                 type: String,
-                enum: ['Impayées ', 'Déposée ', 'Rejetée ', 'Encaissée '],
+                enum: ['Impayées', 'Payee', '1/2', '3/4'],
                 default: 'Déposée',
             } ,
             DateEmission :{
@@ -24,9 +24,6 @@ const { mongoose } = require("mongoose");
             } ,
             Description: {
                 type: String,  
-            },
-            CreePar: {
-                type: mongoose.Schema.Types.ObjectId, ref: 'User' 
             }
         },
     );

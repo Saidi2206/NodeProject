@@ -17,7 +17,7 @@ const { mongoose } = require("mongoose");
             Mode  :{
                 type: String,
                 enum: ['virement', 'cheque', 'especes', 'autre'],
-                default: 'Déposée',
+                default: 'especes',
             } ,
 
             Description: {

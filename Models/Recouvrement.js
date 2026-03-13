@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+    const { mongoose } = require("mongoose");
   
   const Recouvrement = new mongoose.model('Recouvrement',{
   
@@ -10,10 +10,7 @@ const { mongoose } = require("mongoose");
             },
             client: {
                  type: mongoose.Schema.Types.ObjectId, ref: 'Client', required: true 
-            },
-            CreePar: { 
-                type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true 
-            },
+            },    
             typeAction: {
                 type: String,
                 enum: ['appel', 'email', 'courrier', 'visite', 'mise_en_demeure'],
